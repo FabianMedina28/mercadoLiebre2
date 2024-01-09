@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Inicio'}) %>
+<body>
+	<!-- Header -->
+	<%- include('partials/headerNavbar') %>
+    <!-- /Header -->
+        <!-- Main -->
+    <main>
+        <form action="/register" method="post">
+            <label for="name">Nombre:</label>
+            <input type="text" name="name" id="name" value="<%=old.name? old.name : null %>">
+            <p class="feedback"><%= errores.name? errores.name.msg : null %></p>
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" id="apellido" value="<%=old.apellido? old.apellido : null %>">
+            <p class="feedback"><%= errores.apellido? errores.apellido.msg : null %></p>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" name="email" id="email" value="<%= old.email? old.email : null %>">
+            <p class="feedback"><%= errores.email? errores.email.msg : null %></p>
+            <label for="password">Contraseña:</label>
+            <input type="password" name="password" id="password">
+            <p class="feedback"><%= errores.password? errores.password.msg : null %></p>
+            <button type="submit">Registrarse</button>
+            </form>
+    </main>
+        <!-- /Main -->
+    <!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>
+</html>
